@@ -1817,6 +1817,7 @@ bool ViewContainer::canMoveViewLeft() const
     int index = (m_popupViewIndex != -1) ? m_popupViewIndex : m_tabWidget->currentIndex();
 
     ChatWindow* view = static_cast<ChatWindow*>(m_tabWidget->widget(index));
+    if (!view) return false;
 
     if (view->isTopLevelView() && index > 0) {
         return true;
@@ -1841,6 +1842,7 @@ bool ViewContainer::canMoveViewRight() const
     int index = (m_popupViewIndex != -1) ? m_popupViewIndex : m_tabWidget->currentIndex();
 
     ChatWindow* view = static_cast<ChatWindow*>(m_tabWidget->widget(index));
+    if (!view) return false;
 
     if (view->isTopLevelView()) {
         int lastTopLevelView = -1;
